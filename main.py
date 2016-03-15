@@ -1,3 +1,5 @@
+import threading
+
 from dbutil import save_stu_to_db, finish_save_stu_to_db
 from parserHTML import get_students_info
 from pictool import downpic
@@ -14,6 +16,8 @@ for tt in urls:
         for stu in stus:
             print(stu.toString())
             save_stu_to_db(stu)
-
+            # t = threading.Thread(target=downpic(stu), name="PIC_THREAD")
+            # t.start()
+            # t.join()
 
 finish_save_stu_to_db()

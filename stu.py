@@ -11,8 +11,8 @@ class Student:
                + "\n学号：" + self.stuId + "\n性别：" + self.sex + "\n专业：" + self.major + "\n学院：" + self.college
 
     def __init__(self, info):
-        self.stuId = info[0].string
-        self.name = info[1].string
-        self.sex = info[2].string
-        self.major = info[3].string
-        self.college = info[4].string
+        self.stuId = info[0].string.strip()
+        self.name = info[1].string.strip()
+        self.sex = info[2].string.strip()
+        self.major = info[3].string.strip()
+        self.college = info[4].string.strip()

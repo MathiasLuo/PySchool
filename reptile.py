@@ -37,9 +37,6 @@ BASE_PATH = "http://jwzx.cqupt.edu.cn/"
 #     print(tt.get("href"))
 
 
-
-
-
 def get_urls(url):
     list_urls = []
     data = urllib.request.urlopen(PATH).read()
@@ -51,7 +48,7 @@ def get_urls(url):
     data = data.split(r',')
     for tt in data:
         if re.match(r'\'pubBjStu.php\?zyh=\d\d\d\d\'', tt):
-            list_urls.append(BASE_PATH+tt[1:22])
+            list_urls.append(BASE_PATH + tt[1:22])
     return list_urls
 
 
@@ -62,8 +59,5 @@ def get_class_number(url):
     soup = BeautifulSoup(data, "html5lib")
     data = soup.find_all("a")
     for tt in data:
-        urls.append(BASE_PATH+tt.get("href"))
+        urls.append(BASE_PATH + tt.get("href"))
     return urls
-
-
-
