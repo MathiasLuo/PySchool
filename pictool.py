@@ -1,6 +1,8 @@
 import os
 import urllib.request
 
+from dbutil import save_to_db
+
 sourceURL = r'http://jwzx.cqupt.edu.cn/showstuPic.php?xh='
 save_path = r'picture/'
 
@@ -19,3 +21,4 @@ def downpic(student):
     output.close()
 
 
+save_to_db()
