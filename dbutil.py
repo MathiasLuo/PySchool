@@ -4,18 +4,16 @@ CREART_TABLE = "CREATE TABLE STU (ID INTEGER  AUTO_INCREMENT PRIMARY KEY,NAME CH
 
 conn = sqlite3.connect("students.db")
 
-
 # cursor = conn.cursor()
 # cursor.execute(CREART_TABLE)
 # cursor.close()
 # conn.commit()
 # conn.close()
 
-
 def info():
     print("添加函数--->>>insert_stu(name,stuId,major,sex,college)")
     print("查找函数--->>>insert_stu(name)----query_stu_id(id)")
-    print("修改函数--->>>update_stu_name(name,stuid)----update_stu_major(major,stuid)")
+    print("更新函数--->>>update_stu_name(name,stuid)----update_stu_major(major,stuid)")
     print("删除函数--->>>delete_stu_id(stuid)----delete_stu_name(name)")
     print("提交函数--->>>save_to_db()")
 
@@ -80,7 +78,10 @@ def delete_stu_name(name):
     sql_delete = "DELETE FROM STU WHERE NAME = '" + name + "'"
     conn.execute(sql_delete)
 
+
 def save_to_db():
     conn.commit()
     conn.close()
+
+
 info()
