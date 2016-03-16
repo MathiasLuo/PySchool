@@ -4,6 +4,7 @@ CREART_TABLE = "CREATE TABLE STU (ID INTEGER  AUTO_INCREMENT PRIMARY KEY,NAME CH
 
 conn = sqlite3.connect("students.db")
 
+
 # cursor = conn.cursor()
 # cursor.execute(CREART_TABLE)
 # cursor.close()
@@ -83,5 +84,23 @@ def save_to_db():
     conn.commit()
     conn.close()
 
+
+def query_all_stus():
+    sql_query = "SELECT * FROM STU"
+    cursor = conn.execute(sql_query)
+    students = cursor.fetchall()
+    str = ""
+    for stu in students:
+        str = str + stu.__str__()+"\n"
+    return str
+
+def queryStudent(id):
+    sql_query = "SELECT * FROM STU WHERE  STUID= ?"
+    cursor = conn.execute(sql_query, [id])
+    students = cursor.fetchall()
+    str = ""
+    for stu in students:
+        str = str + stu.__str__()+"\n"
+    return str
 
 info()
